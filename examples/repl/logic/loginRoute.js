@@ -6,7 +6,7 @@ module.exports = new Joist.Logic({
     return (signal.target == 'login');
   },
   command: function (dep, signal, executed) {
-    dep.joist.patch('login', signal.value);
+    dep.joist.patch('login', signal.data.value);
   },
   confirm: function () {
     return true;

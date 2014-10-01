@@ -16,7 +16,7 @@ module.exports = new Joist.Logic({
   command: function (dep, changes, executed) {
     _.each(changes, function (change) {
       if (change.path.join(',') == ['login'].join(',')) {
-        dep.ui.displayText('you are logged in as ' + change.rhs);
+        dep.ui.displayText('info', 'you are logged in as ' + change.rhs);
       }
     });
   }
