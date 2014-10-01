@@ -28,6 +28,19 @@ ui.displayActionList('userlist', [
   }
   ]);
 
+  ui.displayList('itemlist', [
+    {
+      label: 'login user 1',
+      target: 'login',
+      value: 'user1'
+    },
+    {
+      label: 'login user 2',
+      target: 'login',
+      value: 'user2'
+    }
+  ]);
+
 var replServer = repl.start({
   prompt: "app > ",
   eval: function () {
