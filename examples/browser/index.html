@@ -1,0 +1,35 @@
+<html>
+
+<head>
+  <title>joist browser test</title>
+  <script src='/browser/joist.min.js'></script>
+  <script src='/node_modules/underscore/underscore-min.js'></script>
+  <script src='logic/loginAction.js'></script>
+  <script src='logic/loginRoute.js'></script>
+  <script src='logic/loginReaction.js'></script>
+  <script>
+    var dep = {};
+    var data =  {};
+
+    Joist.createHtmlUi(dep);
+
+    var joist = Joist.create(dep, data);
+
+    joist.addAction(loginAction)
+    .addRoute(loginRoute)
+    .addReaction(loginReaction);
+
+    var hs = new Joist.createHtmlSignal(joist);
+
+    document.onclick = function(event) {
+      hs.input(event);
+    };
+  </script>
+</head>
+
+<body>
+  <div data-joist-target='login' data-joist-value='user1'>login user 1</div>
+  <div data-joist-target='login' data-joist-value='user2'>login user 2</div>
+</body>
+
+</html>
