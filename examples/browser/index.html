@@ -9,27 +9,41 @@
   <script src='logic/loginReaction.js'></script>
   <script>
     var dep = {};
-    var data =  {};
+    var data = {};
 
-    Joist.createHtmlUi(dep);
+    var ui = Joist.createHtmlUi(dep);
 
     var joist = Joist.create(dep, data);
 
     joist.addAction(loginAction)
-    .addRoute(loginRoute)
-    .addReaction(loginReaction);
+      .addRoute(loginRoute)
+      .addReaction(loginReaction);
 
     var hs = new Joist.createHtmlSignal(joist);
 
-    document.onclick = function(event) {
+    document.onclick = function (event) {
       hs.input(event);
     };
+
+    window.onload = function () {
+      ui.displayActionList('userlist', [
+        {
+          label: 'login user 1',
+          target: 'login',
+          value: 'user1'
+        },
+        {
+          label: 'login user 2',
+          target: 'login',
+          value: 'user2'
+        }
+      ]);
+    }
   </script>
 </head>
 
 <body>
-  <div data-joist-target='login' data-joist-value='user1'>login user 1</div>
-  <div data-joist-target='login' data-joist-value='user2'>login user 2</div>
+
 </body>
 
 </html>

@@ -3,7 +3,7 @@ var repl = require('repl');
 var Joist = require('../../lib');
 
 var dep = {};
-var data =  {};
+var data = {};
 
 var ui = Joist.createConsoleUi(dep);
 
@@ -14,6 +14,19 @@ joist.addAction(require('./logic/loginAction'))
   .addReaction(require('./logic/loginReaction'));
 
 var rs = Joist.createReplSignal(joist);
+
+ui.displayActionList('userlist', [
+  {
+    label: 'login user 1',
+    target: 'login',
+    value: 'user1'
+  },
+  {
+    label: 'login user 2',
+    target: 'login',
+    value: 'user2'
+  }
+  ]);
 
 var replServer = repl.start({
   prompt: "app > ",
