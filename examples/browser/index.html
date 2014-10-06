@@ -15,15 +15,10 @@
 
     var joist = Joist.create(dep, data);
 
-    joist.addAction(loginAction)
+    joist.addSignalSource(Joist.HtmlSignal)
+      .addAction(loginAction)
       .addRoute(loginRoute)
       .addReaction(loginReaction);
-
-    var hs = new Joist.createHtmlSignal(joist);
-
-    document.onclick = function (event) {
-      hs.input(event);
-    };
 
     window.onload = function () {
       ui.displayActionList('userlist', [
