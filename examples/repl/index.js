@@ -10,4 +10,4 @@ joist.addSignalSource(Joist.ReplSignal)
   .addAction(require('./logic/loginAction'))
   .addRoute(require('./logic/loginRoute'))
   .addReaction(require('./logic/loginReaction'))
-  .addRenderTarget(Joist.consoleOutput);
+  .addRenderTarget(Joist.ConsoleOutput);
