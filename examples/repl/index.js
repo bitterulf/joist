@@ -6,7 +6,9 @@ var data = {};
 
 var joist = Joist.create(dep, data);
 
-joist.addSignalSource(Joist.ReplSignal)
+joist
+  .addDataManager(Joist.DataManager)
+  .addSignalSource(Joist.ReplSignal)
   .addAction(require('./logic/loginAction'))
   .addRoute(require('./logic/loginRoute'))
   .addReaction(require('./logic/loginReaction'))

@@ -13,7 +13,8 @@
 
     var joist = Joist.create(dep, data);
 
-    joist.addSignalSource(Joist.HtmlSignal)
+    joist.addDataManager(Joist.DataManager)
+      .addSignalSource(Joist.HtmlSignal)
       .addAction(loginAction)
       .addRoute(loginRoute)
       .addReaction(loginReaction)
