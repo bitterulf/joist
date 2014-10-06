@@ -13,11 +13,13 @@ module.exports = new Joist.Logic({
 
     return result;
   },
-  command: function (dep, changes, executed) {
+  command: function (dep, changes, executed, result) {
+    result.displayText = [];
     _.each(changes, function (change) {
       if (change.path.join(',') == ['login'].join(',')) {
-        dep.ui.displayText('info', 'you are logged in as ' + change.rhs);
+        result.displayText.push({target: 'info', text: 'you are logged in as ' + change.rhs});
       }
     });
+    return result;
   }
 });
