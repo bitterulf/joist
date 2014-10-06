@@ -11,47 +11,20 @@
     var dep = {};
     var data = {};
 
-    var ui = Joist.createHtmlUi(dep);
-
     var joist = Joist.create(dep, data);
 
     joist.addSignalSource(Joist.HtmlSignal)
       .addAction(loginAction)
       .addRoute(loginRoute)
-      .addReaction(loginReaction);
-
-    window.onload = function () {
-      ui.displayActionList('userlist', [
-        {
-          label: 'login user 1',
-          target: 'login',
-          value: 'user1'
-        },
-        {
-          label: 'login user 2',
-          target: 'login',
-          value: 'user2'
-        }
-      ]);
-
-      ui.displayList('itemlist', [
-        {
-          label: 'login user 1',
-          target: 'login',
-          value: 'user1'
-        },
-        {
-          label: 'login user 2',
-          target: 'login',
-          value: 'user2'
-        }
-      ]);
-    }
+      .addReaction(loginReaction)
+      .addRenderTarget(Joist.htmlOutput);
   </script>
 </head>
 
 <body>
-
+  <div data-joist-target="login" data-joist-value="user1">login user 1
+    <div></div>
+  </div>
 </body>
 
 </html>
