@@ -8,9 +8,8 @@
   <script src='logic/loginReaction.js'></script>
   <script>
     var dep = {};
-    var data = {};
 
-    var joist = Joist.create(Joist.DataManager, dep, data);
+    var joist = Joist.create(Joist.DataManager, dep);
 
     joist.addSignalSource(Joist.HtmlSignal)
       .addAction(loginAction)

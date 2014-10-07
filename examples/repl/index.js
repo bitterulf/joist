@@ -2,9 +2,8 @@ var _ = require('underscore');
 var Joist = require('../../lib');
 
 var dep = {};
-var data = {};
 
-var joist = Joist.create(Joist.DataManager, dep, data);
+var joist = Joist.create(Joist.DataManager, dep);
 
 joist
   .addSignalSource(Joist.ReplSignal)
