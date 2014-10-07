@@ -10,10 +10,9 @@
     var dep = {};
     var data = {};
 
-    var joist = Joist.create(dep, data);
+    var joist = Joist.create(Joist.DataManager, dep, data);
 
-    joist.addDataManager(Joist.DataManager)
-      .addSignalSource(Joist.HtmlSignal)
+    joist.addSignalSource(Joist.HtmlSignal)
       .addAction(loginAction)
       .addReaction(loginReaction)
       .addRenderTarget(Joist.HtmlOutput);
