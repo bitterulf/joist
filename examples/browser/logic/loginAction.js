@@ -11,7 +11,7 @@ loginAction = new Joist.Logic({
     fakeRequest(signal.data, function (result) {
       cb({
         login: result
-      });
+      }, []);
     });
   }
 });
