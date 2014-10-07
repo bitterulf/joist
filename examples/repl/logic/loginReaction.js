@@ -15,7 +15,7 @@ module.exports = new Joist.Logic({
     _.each(matchedChanges, function (matchedChange) {
       result.displayText.push({
         target: 'info',
-        text: 'you are logged in as ' + matchedChange.rhs
+        text: 'you are logged in as ' + joist.helper.helper1(matchedChange.rhs)
       });
     });
 
