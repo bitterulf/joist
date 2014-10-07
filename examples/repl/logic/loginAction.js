@@ -10,7 +10,7 @@ module.exports = new Joist.Logic({
   check: function (signal, executed) {
     return (signal.target == 'login');
   },
-  command: function (dep, signal, executed, cb) {
+  command: function (joist, signal, executed, cb) {
     fakeRequest(signal.data, function (result) {
       cb({
         login: result
