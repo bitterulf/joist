@@ -1,6 +1,6 @@
 loginReaction = new Joist.Logic({
   name: 'loginChanged',
-  check: function (changes, executed) {
+  check: function (joist, changes, executed) {
     var matchedChanges = Joist.filter.matchPath(changes, ['login']);
 
     return matchedChanges.length;

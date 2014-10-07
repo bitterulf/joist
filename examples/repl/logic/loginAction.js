@@ -7,7 +7,7 @@ var fakeRequest = function (data, cb) {
 
 module.exports = new Joist.Logic({
   name: 'login',
-  check: function (signal, executed) {
+  check: function (joist, signal, executed) {
     return (signal.target == 'login');
   },
   command: function (joist, signal, executed, cb) {
