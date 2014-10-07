@@ -10,6 +10,5 @@ joist
   .addDataManager(Joist.DataManager)
   .addSignalSource(Joist.ReplSignal)
   .addAction(require('./logic/loginAction'))
-  .addRoute(require('./logic/loginRoute'))
   .addReaction(require('./logic/loginReaction'))
   .addRenderTarget(Joist.ConsoleOutput);
