@@ -10,7 +10,7 @@ loginReaction = new Joist.Logic({
 
     var matchedChanges = Joist.filter.matchPath(changes, ['login']);
     _.each(matchedChanges, function (matchedChange) {
-      result.displayText.push({
+      result.add('displayText', {
         target: 'info',
         text: 'you are logged in as ' + joist.helper.helper1(matchedChange.rhs)
       });
