@@ -1,0 +1,67 @@
+<html>
+
+<head>
+  <title>joist browser test</title>
+  <script src='/browser/joist.min.js'></script>
+  <script src='/node_modules/underscore/underscore-min.js'></script>
+  <script src='logic/initAction.js'></script>
+  <script src='logic/initReaction.js'></script>
+  <script>
+    var renderData = function (element) {
+      var result = '';
+      if (element.target) {
+        result += 'data-joist-target="' + element.target + '" ';
+        _.each(element.data, function (value, key) {
+          result += 'data-joist-' + key + '="' + value + '" ';
+        });
+      }
+
+      return result;
+    }
+
+    var renderTreeElement = function (element) {
+      var html = '<ul ' + renderData(element) + '>' + element.text;
+      _.each(element.children, function (child) {
+        html += '<li>' + renderTreeElement(child) + '</li>';
+      })
+      html += '</ul>';
+
+      return html;
+    };
+
+    var renderTree = function (treeData) {
+      var tree = document.getElementById('joist-tree-' + treeData.text);
+
+      if (!tree) {
+        tree = document.createElement('div');
+        tree.id = 'joist-tree-' + treeData.text;
+        document.body.appendChild(tree);
+      }
+
+      tree.innerHTML = renderTreeElement(treeData);
+    };
+
+    var Output = function (joist) {};
+
+    Output.prototype.render = function (data) {
+      _.each(data.displayTree, function (displayItem) {
+        renderTree(displayItem);
+      });
+    };
+
+    var helper = {};
+
+    var joist = Joist.create(Joist.DataManager, helper);
+
+    joist.addSignalSource(Joist.HtmlSignal)
+      .addAction(initAction)
+      .addReaction(initReaction)
+      .addRenderTarget(Output);
+  </script>
+</head>
+
+<body>
+  <div data-joist-target="game" data-joist-value="init">start game</div>
+</body>
+
+</html>
