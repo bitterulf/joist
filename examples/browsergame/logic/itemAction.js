@@ -4,7 +4,7 @@ itemAction = new Joist.Logic({
     return (signal.target == 'item');
   },
   command: function (joist, signal, executed, cb) {
-    var log = _.clone(joist.dataManager.getData().log);
+    var log = joist.dataManager.getData().log;
 
     log.push('action: '+signal.data.action+' on '+signal.data.item);
 
