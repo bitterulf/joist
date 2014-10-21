@@ -5,7 +5,10 @@
   <script src='/browser/joist.min.js'></script>
   <script src='/node_modules/underscore/underscore-min.js'></script>
   <script src='logic/initAction.js'></script>
+  <script src='logic/initMessagesAction.js'></script>
+  <script src='logic/itemAction.js'></script>
   <script src='logic/initReaction.js'></script>
+  <script src='logic/logReaction.js'></script>
   <script>
     var renderData = function (element) {
       var result = '';
@@ -55,7 +58,10 @@
 
     joist.addSignalSource(Joist.HtmlSignal)
       .addAction(initAction)
+      .addAction(initMessagesAction)
+      .addAction(itemAction)
       .addReaction(initReaction)
+      .addReaction(logReaction)
       .addRenderTarget(Output);
   </script>
 </head>
