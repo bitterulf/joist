@@ -28,6 +28,12 @@ itemAction = new Joist.Logic({
       data.bag.push({
         name: 'stone'
       });
+    } else if (signal.data.action == 'collect' && signal.data.item == 'citymap') {
+      data.log.push('you collected a map to the city!');
+      data.locations[data.location] = removeFromLocationByName(data.locations[data.location], 'items', 'citymap');
+      data.bag.push({
+        name: 'citymap'
+      });
     } else {
       data.log.push('action: ' + signal.data.action + ' on ' + signal.data.item);
     }

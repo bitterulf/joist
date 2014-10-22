@@ -8,10 +8,12 @@
   <script src='logic/initMessagesAction.js'></script>
   <script src='logic/itemAction.js'></script>
   <script src='logic/bagItemAction.js'></script>
+  <script src='logic/travelAction.js'></script>
   <script src='logic/initReaction.js'></script>
   <script src='logic/logReaction.js'></script>
   <script src='logic/bagReaction.js'></script>
   <script src='logic/locationReaction.js'></script>
+  <script src='logic/connectionReaction.js'></script>
   <script>
     var renderData = function (element) {
       var result = '';
@@ -64,7 +66,9 @@
       .addAction(initMessagesAction)
       .addAction(itemAction)
       .addAction(bagItemAction)
+      .addAction(travelAction)
       .addReaction(initReaction)
+      .addReaction(connectionReaction)
       .addReaction(bagReaction)
       .addReaction(logReaction)
       .addReaction(locationReaction)

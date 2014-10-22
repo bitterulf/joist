@@ -13,7 +13,7 @@ var fakeRequest = function (data, cb) {
       {
         name: 'collect',
         objects: [],
-        items: ['stone'],
+        items: ['stone', 'citymap'],
         npcs: [],
         bagitems: []
       },
@@ -39,11 +39,25 @@ var fakeRequest = function (data, cb) {
           name: 'tree'
         }],
         items: [{
-          name: 'stone'
+            name: 'stone'
+        },
+          {
+            name: 'citymap'
         }],
         npcs: [{
           name: 'merchant'
-        }]
+        }],
+        connections: [
+          {
+            name: 'path to village',
+            destination: 'village',
+            requirements: {
+              bagitems: {
+                citymap: 1
+              }
+            }
+          }
+        ]
       },
       {
         name: 'village',
