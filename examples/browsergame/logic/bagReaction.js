@@ -14,8 +14,24 @@ bagReaction = new Joist.Logic({
     };
 
     _.each(data.bag, function (obj) {
+
+      var possibleActions = [];
+      _.each(data.actions, function (action) {
+        if (_.indexOf(action.bagitems, obj.name) > -1) {
+          possibleActions.push({
+            text: action.name,
+            target: 'bagitem',
+            data: {
+              bagitem: obj.name,
+              action: action.name
+            }
+          });
+        }
+      });
+
       bagTree.children.push({
-        text: obj.name
+        text: obj.name,
+        children: possibleActions
       });
     });
 

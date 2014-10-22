@@ -7,19 +7,29 @@ var fakeRequest = function (data, cb) {
         name: 'chop',
         objects: ['tree'],
         items: [],
-        npcs: []
+        npcs: [],
+        bagitems: []
       },
       {
         name: 'collect',
         objects: [],
         items: ['stone'],
-        npcs: []
+        npcs: [],
+        bagitems: []
       },
       {
         name: 'talk',
         objects: [],
         items: [],
-        npcs: ['merchant']
+        npcs: ['merchant'],
+        bagitems: []
+      },
+      {
+        name: 'throw',
+        objects: [],
+        items: [],
+        npcs: [],
+        bagitems: ['stone']
       }
     ],
     locations: [
