@@ -9,6 +9,7 @@
   <script src='logic/itemAction.js'></script>
   <script src='logic/initReaction.js'></script>
   <script src='logic/logReaction.js'></script>
+  <script src='logic/bagReaction.js'></script>
   <script>
     var renderData = function (element) {
       var result = '';
@@ -61,6 +62,7 @@
       .addAction(initMessagesAction)
       .addAction(itemAction)
       .addReaction(initReaction)
+      .addReaction(bagReaction)
       .addReaction(logReaction)
       .addRenderTarget(Output);
   </script>

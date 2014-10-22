@@ -1,7 +1,6 @@
 logReaction = new Joist.Logic({
   name: 'logReaction',
   check: function (joist, changes, executed) {
-    console.log('changez', changes);
     var matchedChanges = Joist.filter.matchPath(changes, ['log']);
 
     return matchedChanges.length;
@@ -14,8 +13,10 @@ logReaction = new Joist.Logic({
       children: []
     };
 
-    _.each(_.last(data.log, 5), function(entry) {
-      logTree.children.push({text: entry});
+    _.each(_.last(data.log, 5), function (entry) {
+      logTree.children.push({
+        text: entry
+      });
     });
 
     result.add('displayTree', logTree);
