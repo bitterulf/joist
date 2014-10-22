@@ -10,6 +10,7 @@
   <script src='logic/initReaction.js'></script>
   <script src='logic/logReaction.js'></script>
   <script src='logic/bagReaction.js'></script>
+  <script src='logic/locationReaction.js'></script>
   <script>
     var renderData = function (element) {
       var result = '';
@@ -64,6 +65,7 @@
       .addReaction(initReaction)
       .addReaction(bagReaction)
       .addReaction(logReaction)
+      .addReaction(locationReaction)
       .addRenderTarget(Output);
   </script>
 </head>

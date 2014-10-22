@@ -4,21 +4,38 @@ itemAction = new Joist.Logic({
     return (signal.target == 'item');
   },
   command: function (joist, signal, executed, cb) {
-    var log = joist.dataManager.getData().log;
-    var bag = joist.dataManager.getData().bag;
+    var removeFromLocationByName = function (location, type, name) {
+
+      var found = false;
+
+      location[type] = _.reduce(location[type], function (list, obj) {
+        if (!found && obj.name == name) {
+          found = true;
+        } else {
+          list.push(obj);
+        }
+        return list;
+      }, []);
+
+      return location;
+    };
+
+    var data = joist.dataManager.getData();
 
     if (signal.data.action == 'collect' && signal.data.item == 'stone') {
-      log.push('you collected a stone!');
-      bag.push({
+      data.log.push('you collected a stone!');
+      data.locations[data.location] = removeFromLocationByName(data.locations[data.location], 'items', 'stone');
+      data.bag.push({
         name: 'stone'
       });
     } else {
-      log.push('action: ' + signal.data.action + ' on ' + signal.data.item);
+      data.log.push('action: ' + signal.data.action + ' on ' + signal.data.item);
     }
 
     cb({
-      log: log,
-      bag: bag
+      log: data.log,
+      bag: data.bag,
+      locations: data.locations
     }, []);
   }
 });
