@@ -13,7 +13,7 @@ var fakeRequest = function (data, cb) {
       {
         name: 'collect',
         objects: [],
-        items: ['stone', 'citymap'],
+        items: ['stone', 'villagemap', 'gatekey'],
         npcs: [],
         bagitems: []
       },
@@ -39,10 +39,9 @@ var fakeRequest = function (data, cb) {
           name: 'tree'
         }],
         items: [{
-            name: 'stone'
-        },
-          {
-            name: 'citymap'
+          name: 'stone'
+        }, {
+          name: 'villagemap'
         }],
         npcs: [{
           name: 'merchant'
@@ -53,7 +52,7 @@ var fakeRequest = function (data, cb) {
             destination: 'village',
             requirements: {
               bagitems: {
-                citymap: 1
+                villagemap: 1
               }
             }
           }
@@ -62,10 +61,23 @@ var fakeRequest = function (data, cb) {
       {
         name: 'village',
         objects: [],
-        items: [],
+        items: [{
+          name: 'gatekey'
+        }],
         npcs: [{
           name: 'merchant'
-        }]
+        }],
+        connections: [
+          {
+            name: 'gate to the forrest',
+            destination: 'forrest',
+            requirements: {
+              bagitems: {
+                gatekey: 1
+              }
+            }
+          }
+        ]
       }
     ],
     bag: [{

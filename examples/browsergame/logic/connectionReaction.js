@@ -8,6 +8,32 @@ connectionReaction = new Joist.Logic({
     return matchedChanges.length + matchedChanges2.length + matchedChanges3.length;
   },
   command: function (joist, changes, executed, result) {
+    var hasAmountInBag = function (bag, name, needAmount) {
+      _.each(bag, function (bagitem) {
+        if (bagitem.name == name) {
+          needAmount--;
+        }
+      });
+
+      if (needAmount < 1) {
+        return true;
+      }
+
+      return false;
+    };
+
+    var fulfillRequirements = function (data, requirements) {
+      var result = true;
+
+      _.each(requirements.bagitems, function (value, key) {
+        if (!hasAmountInBag(data.bag, key, value)) {
+          result = false;
+        }
+      });
+
+      return result;
+    };
+
     var data = joist.dataManager.getData();
 
     var currentLocation = data.locations[data.location];
@@ -18,14 +44,16 @@ connectionReaction = new Joist.Logic({
     };
 
     _.each(currentLocation.connections, function (connection) {
-      connectionsTree.children.push({
-        text: connection.name,
-        target: 'connection',
-        data: {
-          destination: connection.destination,
-          action: 'travel'
-        }
-      });
+      if (fulfillRequirements(data, connection.requirements)) {
+        connectionsTree.children.push({
+          text: connection.name,
+          target: 'connection',
+          data: {
+            destination: connection.destination,
+            action: 'travel'
+          }
+        });
+      }
     });
 
     result.add('displayTree', connectionsTree);

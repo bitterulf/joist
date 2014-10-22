@@ -28,11 +28,17 @@ itemAction = new Joist.Logic({
       data.bag.push({
         name: 'stone'
       });
-    } else if (signal.data.action == 'collect' && signal.data.item == 'citymap') {
-      data.log.push('you collected a map to the city!');
-      data.locations[data.location] = removeFromLocationByName(data.locations[data.location], 'items', 'citymap');
+    } else if (signal.data.action == 'collect' && signal.data.item == 'villagemap') {
+      data.log.push('you collected a map to the village!');
+      data.locations[data.location] = removeFromLocationByName(data.locations[data.location], 'items', 'villagemap');
       data.bag.push({
-        name: 'citymap'
+        name: 'villagemap'
+      });
+    } else if (signal.data.action == 'collect' && signal.data.item == 'gatekey') {
+      data.log.push('you collected a key to pass the village gate!');
+      data.locations[data.location] = removeFromLocationByName(data.locations[data.location], 'items', 'gatekey');
+      data.bag.push({
+        name: 'gatekey'
       });
     } else {
       data.log.push('action: ' + signal.data.action + ' on ' + signal.data.item);
