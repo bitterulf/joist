@@ -1,12 +1,12 @@
 locationReaction = new Joist.Logic({
   name: 'locationReaction',
-  check: function (joist, changes, executed) {
+  check: function (joist, current, changes, executed) {
     var matchedChanges = Joist.filter.matchPath(changes, ['locations']);
     var matchedChanges2 = Joist.filter.matchPath(changes, ['location']);
 
     return matchedChanges.length + matchedChanges2.length;
   },
-  command: function (joist, changes, executed, result) {
+  command: function (joist, current, changes, executed, result) {
     var data = joist.dataManager.getData();
 
     var currentLocation = data.locations[data.location];

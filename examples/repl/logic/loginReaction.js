@@ -3,12 +3,12 @@ var _ = require('underscore');
 
 module.exports = new Joist.Logic({
   name: 'loginChanged',
-  check: function (joist, changes, executed) {
+  check: function (joist, current, changes, executed) {
     var matchedChanges = Joist.filter.matchPath(changes, ['login']);
 
     return matchedChanges.length;
   },
-  command: function (joist, changes, executed, result) {
+  command: function (joist, current, changes, executed, result) {
     var matchedChanges = Joist.filter.matchPath(changes, ['login']);
     _.each(matchedChanges, function (matchedChange) {
       result.add('displayText', {
