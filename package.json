@@ -1,6 +1,6 @@
 {
   "name": "joist",
-  "version": "0.9.0",
+  "version": "0.10.0",
   "description": "A light workflow to reuse and separate logic pieces independently of input and output sources.",
   "keywords": [
     "joist",
