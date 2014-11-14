@@ -1,13 +1,13 @@
 connectionReaction = new Joist.Logic({
   name: 'connectionReaction',
-  check: function (joist, current, changes, executed) {
+  check: function (joist, old, current, changes, executed) {
     var matchedChanges = Joist.filter.matchPath(changes, ['location']);
     var matchedChanges2 = Joist.filter.matchPath(changes, ['locations']);
     var matchedChanges3 = Joist.filter.matchPath(changes, ['bag']);
 
     return matchedChanges.length + matchedChanges2.length + matchedChanges3.length;
   },
-  command: function (joist, current, changes, executed, result) {
+  command: function (joist, old, current, changes, executed, result) {
     var hasAmountInBag = function (bag, name, needAmount) {
       _.each(bag, function (bagitem) {
         if (bagitem.name == name) {

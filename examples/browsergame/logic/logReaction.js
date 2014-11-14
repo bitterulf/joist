@@ -1,11 +1,11 @@
 logReaction = new Joist.Logic({
   name: 'logReaction',
-  check: function (joist, current, changes, executed) {
+  check: function (joist, old, current, changes, executed) {
     var matchedChanges = Joist.filter.matchPath(changes, ['log']);
 
     return matchedChanges.length;
   },
-  command: function (joist, current, changes, executed, result) {
+  command: function (joist, old, current, changes, executed, result) {
     var data = joist.dataManager.getData();
 
     var logTree = {
